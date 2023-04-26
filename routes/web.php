@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\account\DashboardController::class,'index'])->name('account.dashboard.index');
+Route::prefix('account')->group(function () {
+
+    Route::get('/dashboard', [App\Http\Controllers\account\DashboardController::class,'index'])->name('account.dashboard.index');
+});
