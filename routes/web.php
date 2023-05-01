@@ -56,4 +56,16 @@ Route::prefix('account')->group(function () {
     Route::get('/categories_credit/{category}/edit', [CategoriesCreditController::class, 'edit'])->name('account.categories_credit.edit');
     Route::put('/categories_credit/{category}', [CategoriesCreditController::class, 'update'])->name('account.categories_credit.update');
     Route::delete('/categories_credit/{category}', [CategoriesCreditController::class, 'destroy'])->name('account.categories_credit.destroy');
+
+     //credit
+     Route::get('/credit/search', [CreditController::class, 'search'])->name('account.credit.search');
+     Route::resource('/credit', CreditController::class)->names('account');
+ 
+     //laporan debit
+     Route::get('/laporan_debit', [LaporanDebitController::class, 'index'])->name('account.laporan_debit.index');
+     Route::get('/laporan_debit/check', [LaporanDebitController::class, 'check'])->name('account.laporan_debit.check');
+ 
+     //laporan credit
+     Route::get('/laporan_credit', [LaporanCreditController::class, 'index'])->name('account.laporan_credit.index');
+     Route::get('/laporan_credit/check', [LaporanCreditController::class, 'check'])->name('account.laporan_credit.check');
 });
