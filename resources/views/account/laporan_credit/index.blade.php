@@ -68,6 +68,9 @@
                                     <tbody>
                                     @php
                                         $no = 1;
+                                        function rupiah($nominal) {
+                                        return "Rp " . number_format($nominal, 0, ',', '.');
+                                    }
                                     @endphp
                                     @foreach ($credit as $hasil)
                                         <tr>
