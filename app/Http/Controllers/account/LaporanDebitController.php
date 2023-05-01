@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\account;
 
-use App\Debit;
+use App\Models\Debit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

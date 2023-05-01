@@ -68,6 +68,7 @@ Route::prefix('account')->group(function () {
      Route::get('/account/credit/create', [App\Http\Controllers\account\CreditController::class, 'create'])->name('account.credit.create');
      Route::resource('/credit', App\Http\Controllers\account\CreditController::class)->names('account');
      Route::post('/account/credit', [App\Http\Controllers\account\CreditController::class, 'store'])->name('account.credit.store');
+     Route::get('/account/credit/{id}/edit', [App\Http\Controllers\account\CreditController::class, 'edit'])->name('account.credit.edit');
 
      //laporan debit
      Route::get('/laporan_debit', [App\Http\Controllers\account\LaporanDebitController::class, 'index'])->name('account.laporan_debit.index');
