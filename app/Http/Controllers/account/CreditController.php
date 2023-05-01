@@ -45,7 +45,7 @@ class CreditController extends Controller
             ->select('credit.id', 'credit.category_id', 'credit.user_id', 'credit.nominal', 'credit.credit_date', 'credit.description', 'categories_credit.id as id_category', 'categories_credit.name')
             ->join('categories_credit', 'credit.category_id', '=', 'categories_credit.id', 'LEFT')
             ->where('credit.user_id', Auth::user()->id)
-            ->where('credit.description', 'LIKE', '%' .$search. '%')
+            ->where('credit.description', 'LIKE', '%' . $search . '%')
             ->orderBy('credit.created_at', 'DESC')
             ->paginate(10);
         return view('account.credit.index', compact('credit'));
@@ -72,12 +72,14 @@ class CreditController extends Controller
     public function store(Request $request)
     {
         //set validasi required
-        $this->validate($request, [
-            'nominal'       => 'required',
-            'credit_date'    => 'required',
-            'category_id'   => 'required',
-            'description'   => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'nominal'       => 'required',
+                'credit_date'    => 'required',
+                'category_id'   => 'required',
+                'description'   => 'required'
+            ],
             //set message validation
             [
                 'nominal.required' => 'Masukkan Nominal Debit / Uang Keluar!',
@@ -96,10 +98,10 @@ class CreditController extends Controller
             'description'   => $request->input('description'),
         ]);
         //cek apakah data berhasil disimpan
-        if($save){
+        if ($save) {
             //redirect dengan pesan sukses
             return redirect()->route('account.credit.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.credit.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
@@ -128,12 +130,14 @@ class CreditController extends Controller
     public function update(Request $request, Credit $credit)
     {
         //set validasi required
-        $this->validate($request, [
-            'nominal'       => 'required',
-            'credit_date'    => 'required',
-            'category_id'   => 'required',
-            'description'   => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'nominal'       => 'required',
+                'credit_date'    => 'required',
+                'category_id'   => 'required',
+                'description'   => 'required'
+            ],
             //set message validation
             [
                 'nominal.required' => 'Masukkan Nominal Debit / Uang Keluar!',
@@ -152,10 +156,10 @@ class CreditController extends Controller
             'description'   => $request->input('description'),
         ]);
         //cek apakah data berhasil disimpan
-        if($update){
+        if ($update) {
             //redirect dengan pesan sukses
             return redirect()->route('account.credit.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.credit.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -169,15 +173,17 @@ class CreditController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Credit::find($id)->delete($id);
-
-        if($delete){
+        $data = Credit::find($id);
+        if ($data) {
+            $data->delete();
             return response()->json([
-                'status' => 'success'
+                'status' => 'success',
+                'message' => 'Data berhasil dihapus'
             ]);
-        }else{
+        } else {
             return response()->json([
-                'status' => 'error'
+                'status' => 'error',
+                'message' => 'Data tidak ditemukan'
             ]);
         }
     }

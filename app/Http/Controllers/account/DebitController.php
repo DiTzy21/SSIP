@@ -170,16 +170,19 @@ class DebitController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Debit::find($id)->delete($id);
-
-        if($delete){
+        $data = Debit::find($id);
+        if ($data) {
+            $data->delete();
             return response()->json([
-                'status' => 'success'
+                'status' => 'success',
+                'message' => 'Data berhasil dihapus'
             ]);
-        }else{
+        } else {
             return response()->json([
-                'status' => 'error'
+                'status' => 'error',
+                'message' => 'Data tidak ditemukan'
             ]);
         }
     }
+
 }
