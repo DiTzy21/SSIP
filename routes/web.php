@@ -64,12 +64,14 @@ Route::prefix('account')->group(function () {
     Route::delete('/categories_credit/{category}', [App\Http\Controllers\account\CategoriesCreditController::class, 'destroy'])->name('account.categories_credit.destroy');
 
      //credit
-     Route::get('/credit/search', [App\Http\Controllers\account\CreditController::class, 'search'])->name('account.credit.search');
-     Route::get('/account/credit/create', [App\Http\Controllers\account\CreditController::class, 'create'])->name('account.credit.create');
-     Route::resource('/credit', App\Http\Controllers\account\CreditController::class)->names('account');
-     Route::post('/account/credit', [App\Http\Controllers\account\CreditController::class, 'store'])->name('account.credit.store');
-     Route::get('/account/credit/{id}/edit', [App\Http\Controllers\account\CreditController::class, 'edit'])->name('account.credit.edit');
-
+    Route::get('/credit/search', [App\Http\Controllers\account\CreditController::class, 'search'])->name('account.credit.search');
+    Route::get('/credit/create', [App\Http\Controllers\account\CreditController::class, 'create'])->name('account.credit.create');
+    Route::post('/credit', [App\Http\Controllers\account\CreditController::class, 'store'])->name('account.credit.store');
+    Route::get('/credit/{credit}', [App\Http\Controllers\account\CreditController::class, 'show'])->name('account.credit.show');
+    Route::get('/credit/{credit}/edit', [App\Http\Controllers\account\CreditController::class, 'edit'])->name('account.credit.edit');
+    Route::put('/credit/{credit}', [App\Http\Controllers\account\CreditController::class, 'update'])->name('account.credit.update');
+    Route::delete('/credit/{credit}', [App\Http\Controllers\account\CreditController::class, 'destroy'])->name('account.credit.destroy');
+    
      //laporan debit
      Route::get('/laporan_debit', [App\Http\Controllers\account\LaporanDebitController::class, 'index'])->name('account.laporan_debit.index');
      Route::get('/laporan_debit/check', [App\Http\Controllers\account\LaporanDebitController::class, 'check'])->name('account.laporan_debit.check');
