@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\account;
 
-use App\Debit;
+use App\Models\Debit;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,43 +25,43 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $uang_masuk_bulan_ini  = DB::table('debit')
-            ->selectRaw('sum(nominal) as nominal')
-            ->whereYear('debit_date', Carbon::now()->year)
-            ->whereMonth('debit_date', Carbon::now()->month);
-            // ->where('user_id', Auth::user()->id)
-            // ->first();
+        $uang_masuk_bulan_ini = DB::table('debit')
+        ->selectRaw('sum(nominal) as nominal')
+        ->whereYear('debit_date', Carbon::now()->year)
+        ->whereMonth('debit_date', Carbon::now()->month)
+        ->where('user_id', Auth::user()->id)
+        ->first();
 
         $uang_keluar_bulan_ini = DB::table('credit')
             ->selectRaw('sum(nominal) as nominal')
             ->whereYear('credit_date', Carbon::now()->year)
-            ->whereMonth('credit_date', Carbon::now()->month);
-            // ->where('user_id', Auth::user()->id)
-            // ->first()
+            ->whereMonth('credit_date', Carbon::now()->month)
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
         $uang_masuk_bulan_lalu  = DB::table('debit')
             ->selectRaw('sum(nominal) as nominal')
             ->whereYear('debit_date', Carbon::now()->year)
-            ->whereMonth('debit_date', Carbon::now()->subMonths());
-            // ->where('user_id', Auth::user()->id)
-            // ->first();
+            ->whereMonth('debit_date', Carbon::now()->subMonths())
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
         $uang_keluar_bulan_lalu = DB::table('credit')
             ->selectRaw('sum(nominal) as nominal')
             ->whereYear('credit_date', Carbon::now()->year)
-            ->whereMonth('credit_date', Carbon::now()->subMonths());
-            // ->where('user_id', Auth::user()->id)
-            // ->first();
+            ->whereMonth('credit_date', Carbon::now()->subMonths())
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
         $uang_masuk_selama_ini  = DB::table('debit')
-            ->selectRaw('sum(nominal) as nominal');
-            // ->where('user_id', Auth::user()->id)
-            // ->first();
+            ->selectRaw('sum(nominal) as nominal')
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
         $uang_keluar_selama_ini = DB::table('credit')
-            ->selectRaw('sum(nominal) as nominal');
-            // ->where('user_id', Auth::user()->id)
-            // ->first();
+            ->selectRaw('sum(nominal) as nominal')
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
 
         //saldo bulan ini

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\account;
 
-use App\CategoriesCredit;
+use App\Models\CategoriesCredit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

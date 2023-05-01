@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\account;
 
-use App\CategoriesCredit;
-use App\Credit;
+use App\Models\CategoriesCredit;
+use App\Models\Credit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\account;
 
-use App\CategoriesDebit;
-use App\Debit;
+use App\Models\CategoriesDebit;
+use App\Models\Debit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

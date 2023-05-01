@@ -39,6 +39,10 @@
     </head>
 
 <body style="background-color: #f3f3f3;">
+<?php
+function setActive($path, $active = 'active') {
+    return call_user_func_array('Request::is', (array)$path) ? $active : '';}
+?>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
@@ -52,9 +56,13 @@
 
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-                        <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->full_name }}</div></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-title">Logged in as <strong>{{ Auth::user()->username }}</strong></div>
+                        @if (Auth::check())
+                        <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
+                        @endif
+                        <div class="dropdown-menu dropdown-menu-right">
+                        @if(Auth::check())
+                        <div class="dropdown-title">Logged in as <strong>{{ Auth::user()->name }}</strong></div>
+                        @endif
                         <a href="features-profile.html" class="dropdown-item has-icon">
                             <i class="far fa-user"></i> PROFIL SAYA
                         </a>

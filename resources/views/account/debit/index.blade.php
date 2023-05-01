@@ -5,6 +5,11 @@
 @stop
 
 @section('content')
+    <?php
+    function rupiah($nominal) {
+        return "Rp " . number_format($nominal, 0, ",", ".");
+      }
+    ?>
     <div class="main-content">
         <section class="section">
             <div class="section-header">
