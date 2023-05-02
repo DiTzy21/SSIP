@@ -39,10 +39,10 @@ Route::prefix('account')->group(function () {
     Route::get('/categories_debit/search', [App\Http\Controllers\account\CategoriesDebitController::class, 'search'])->name('account.categories_debit.search');
     Route::get('/categories_debit/create', [App\Http\Controllers\account\CategoriesDebitController::class, 'create'])->name('account.categories_debit.create');
     Route::post('/categories_debit', [App\Http\Controllers\account\CategoriesDebitController::class, 'store'])->name('account.categories_debit.store');
-    Route::get('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'show'])->name('account.categories_debit.show');
-    Route::get('/categories_debit/{category}/edit', [App\Http\Controllers\account\CategoriesDebitController::class, 'edit'])->name('account.categories_debit.edit');
-    Route::put('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'update'])->name('account.categories_debit.update');
-    Route::delete('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'destroy'])->name('account.categories_debit.destroy');
+    Route::get('/categories_debit/{categories_debit}', [App\Http\Controllers\account\CategoriesDebitController::class, 'show'])->name('account.categories_debit.show');
+    Route::get('/categories_debit/{categories_debit}/edit', [App\Http\Controllers\account\CategoriesDebitController::class, 'edit'])->name('account.categories_debit.edit');
+    Route::put('/categories_debit/{categories_debit}', [App\Http\Controllers\account\CategoriesDebitController::class, 'update'])->name('account.categories_debit.update');
+    Route::delete('/categories_debit/{categories_debit}', [App\Http\Controllers\account\CategoriesDebitController::class, 'destroy'])->name('account.categories_debit.destroy');
 
     //debit
     Route::get('/debit/search', [App\Http\Controllers\account\DebitController::class, 'search'])->name('account.debit.search');
@@ -57,11 +57,11 @@ Route::prefix('account')->group(function () {
     Route::get('/categories_credit/search', [App\Http\Controllers\account\CategoriesCreditController::class, 'search'])->name('account.categories_credit.search');
     Route::get('/categories_credit/create', [App\Http\Controllers\account\CategoriesCreditController::class, 'create'])->name('account.categories_credit.create');
     Route::post('/categories_credit', [App\Http\Controllers\account\CategoriesCreditController::class, 'store'])->name('account.categories_credit.store');
-    Route::get('/categories_credit/{category}', [App\Http\Controllers\account\CategoriesCreditController::class, 'show'])->name('account.categories_credit.show');
-    Route::get('/categories_credit/{category}/edit', [App\Http\Controllers\account\CategoriesCreditController::class, 'edit'])->name('account.categories_credit.edit');
-    Route::put('/categories_credit/{category}', [App\Http\Controllers\account\CategoriesCreditController::class, 'update'])->name('account.categories_credit.update');
-    Route::delete('/categories_credit/{category}', [App\Http\Controllers\account\CategoriesCreditController::class, 'destroy'])->name('account.categories_credit.destroy');
-
+    Route::get('/categories_credit/{categories_credit}', [App\Http\Controllers\account\CategoriesCreditController::class, 'show'])->name('account.categories_credit.show');
+    Route::get('/categories_credit/{categories_credit}/edit', [App\Http\Controllers\account\CategoriesCreditController::class, 'edit'])->name('account.categories_credit.edit');
+    Route::put('/categories_credit/{categories_credit}', [App\Http\Controllers\account\CategoriesCreditController::class, 'update'])->name('account.categories_credit.update');
+    Route::delete('/categories_credit/{categories_credit}', [App\Http\Controllers\account\CategoriesCreditController::class, 'destroy'])->name('account.categories_credit.destroy');
+    
     //credit
     Route::get('/credit/search', [App\Http\Controllers\account\CreditController::class, 'search'])->name('account.credit.search');
     Route::get('/credit/create', [App\Http\Controllers\account\CreditController::class, 'create'])->name('account.credit.create');
