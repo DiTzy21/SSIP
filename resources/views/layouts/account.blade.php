@@ -145,9 +145,7 @@ function setActive($path, $active = 'active') {
 <script src="{{ asset('assets/js/stisla.js') }}"></script>
 <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
 
-<!-- JS Libraies -->
 
-<!-- Page Specific JS File -->
 
 <!-- Template JS File -->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
