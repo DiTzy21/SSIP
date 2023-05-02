@@ -129,7 +129,7 @@ class CategoriesCreditController extends Controller
         //cek apakah data berhasil disimpan
         if ($update) {
             //redirect dengan pesan sukses
-            return redirect()->route('account.categories_credit.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('account.categories_credit.index')->with(['success' => 'Data Successfully Updated!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('account.categories_credit.index')->with(['error' => 'Data Gagal Diupdate!']);

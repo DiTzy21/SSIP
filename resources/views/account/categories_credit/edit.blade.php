@@ -8,14 +8,14 @@ OUTCOME CATEGORY EDIT - OKANEE
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>KATEGORI UANG KELUAR</h1>
+            <h1>OUTCOME CATEGORY</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-dice-d6"></i> EDIT KATEGORI UANG KELUAR</h4>
+                    <h4><i class="fas fa-dice-d6"></i> EDIT MONEY OUTCOME CATEGORY</h4>
                 </div>
 
                 <div class="card-body">
@@ -24,9 +24,9 @@ OUTCOME CATEGORY EDIT - OKANEE
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>NAMA KATEGORI</label>
+                            <label>CATEGORY NAME</label>
                             <input type="text" name="name" value="{{ old('name', $categoriesCredit->name) }}"
-                                placeholder="Masukkan Nama Kategori" class="form-control">
+                                placeholder="Insert Category Name" class="form-control">
 
                             @error('name')
                             <div class="invalid-feedback" style="display: block">
