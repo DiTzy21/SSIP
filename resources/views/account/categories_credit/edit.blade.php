@@ -1,7 +1,7 @@
 @extends('layouts.account')
 
 @section('title')
-Edit Kategori Uang keluar - UANGKU
+OUTCOME CATEGORY EDIT - OKANEE
 @stop
 
 @section('content')

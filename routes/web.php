@@ -41,7 +41,9 @@ Route::prefix('account')->group(function () {
     Route::post('/categories_debit', [App\Http\Controllers\account\CategoriesDebitController::class, 'store'])->name('account.categories_debit.store');
     Route::get('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'show'])->name('account.categories_debit.show');
     Route::get('/categories_debit/{category}/edit', [App\Http\Controllers\account\CategoriesDebitController::class, 'edit'])->name('account.categories_debit.edit');
-    Route::put('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'update'])->name('account.categories_debit.update');
+    Route::put('account/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'update'])->name('account.categories_debit.update');
+    // Route::post('account/categories_debit/{category}', 'CategoriesDebitController@update')->name('account.categories_debit.update');
+
     Route::delete('/categories_debit/{category}', [App\Http\Controllers\account\CategoriesDebitController::class, 'destroy'])->name('account.categories_debit.destroy');
 
     //debit

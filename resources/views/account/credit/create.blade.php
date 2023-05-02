@@ -1,7 +1,7 @@
 @extends('layouts.account')
 
 @section('title')
-Tambah Uang Keluar - UANGKU
+ADD OUTCOME CATEGORY -OKANEE
 @stop
 
 @section('content')

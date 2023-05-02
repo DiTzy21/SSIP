@@ -82,7 +82,7 @@ class CategoriesDebitController extends Controller
         //cek apakah data berhasil disimpan
         if ($save) {
             //redirect dengan pesan sukses
-            return redirect()->route('account.categories_debit.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('account.categories_debit.index')->with(['success' => 'DATA SUCCESFULLY STORED']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('account.categories_debit.index')->with(['error' => 'Data Gagal Disimpan!']);

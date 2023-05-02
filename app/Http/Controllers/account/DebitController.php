@@ -83,10 +83,10 @@ class DebitController extends Controller
             ],
             //set message validation
             [
-                'nominal.required' => 'Masukkan Nominal Debit / Uang Masuk!',
-                'debit_date.required' => 'Silahkan Pilih Tanggal!',
-                'category_id.required' => 'Silahkan Pilih Kategori!',
-                'description.required' => 'Masukkan Keterangan!',
+                'nominal.required' => 'Please input income',
+                'debit_date.required' => 'please choose date',
+                'category_id.required' => 'Please Choose Date!',
+                'description.required' => 'Add Description!',
             ]
         );
 
@@ -101,7 +101,7 @@ class DebitController extends Controller
         //cek apakah data berhasil disimpan
         if ($save) {
             //redirect dengan pesan sukses
-            return redirect()->route('account.debit.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('account.debit.index')->with(['success' => 'Data Successfully Stored!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('account.debit.index')->with(['error' => 'Data Gagal Disimpan!']);
@@ -159,7 +159,7 @@ class DebitController extends Controller
         //cek apakah data berhasil disimpan
         if ($update) {
             //redirect dengan pesan sukses
-            return redirect()->route('account.debit.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            return redirect()->route('account.debit.index')->with(['success' => 'Data Successfully Updated!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('account.debit.index')->with(['error' => 'Data Gagal Diupdate!']);

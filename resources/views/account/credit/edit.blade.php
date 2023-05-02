@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-Edit Uang keluar - UANGKU
+Edit Outcome - OKANEE
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1> UANG KELUAR</h1>
+            <h1> OUTCOME</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-money-check-alt"></i> EDIT UANG KELUAR</h4>
+                    <h4><i class="fas fa-money-check-alt"></i> EDIT OUTCOME</h4>
                 </div>
 
                 <div class="card-body">
@@ -28,7 +28,7 @@ Edit Uang keluar - UANGKU
                                 <div class="form-group">
                                     <label>NOMINAL (Rp.)</label>
                                     <input type="text" name="nominal" value="{{ old('nominal', $credit->nominal) }}"
-                                        placeholder="Masukkan Nominal" class="form-control currency">
+                                        placeholder="Enter Nominal" class="form-control currency">
 
                                     @error('nominal')
                                     <div class="invalid-feedback" style="display: block">
@@ -39,10 +39,10 @@ Edit Uang keluar - UANGKU
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>TANGGAL</label>
+                                    <label>Date</label>
                                     <input type="text" class="form-control datetimepicker" name="credit_date"
                                         value="{{ old('credit_date', $credit->credit_date) }}"
-                                        placeholder="Pilih Tanggal">
+                                        placeholder="Choose Date">
 
                                     @error('date_debit')
                                     <div class="invalid-feedback" style="display: block">
@@ -56,9 +56,9 @@ Edit Uang keluar - UANGKU
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>KATEGORI</label>
+                                    <label>CATEGORY</label>
                                     <select class="form-control select2" name="category_id" style="width: 100%">
-                                        <option value="">-- PILIH KATEGORI --</option>
+                                        <option value="">-- CHOOSE CATEGORY --</option>
                                         @foreach ($categories as $hasil)
                                         @if($credit->category_id == $hasil->id)
                                         <option value="{{ $hasil->id }}" selected> {{ $hasil->name }}</option>
@@ -80,7 +80,7 @@ Edit Uang keluar - UANGKU
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>KETERANGAN</label>
+                                    <label>DESCRIPTION</label>
                                     <textarea class="form-control" name="description" rows="6"
                                         placeholder="Masukkan Keterangan">{{ old('description', $credit->description) }}</textarea>
 

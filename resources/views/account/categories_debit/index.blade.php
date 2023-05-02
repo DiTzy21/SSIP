@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-Kategori Uang Masuk - UANGKU
+INCOME CATEGORY - OKANEE
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>KATEGORI UANG MASUK</h1>
+            <h1>INCOME CATEGORY</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-dice-d6"></i> KATEGORI UANG MASUK</h4>
+                    <h4><i class="fas fa-dice-d6"></i> INCOME CATEGORY</h4>
                 </div>
 
                 <div class="card-body">
@@ -24,12 +24,12 @@ Kategori Uang Masuk - UANGKU
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <a href="{{ route('account.categories_debit.create') }}" class="btn btn-primary"
-                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> ADD </a>
                                 </div>
                                 <input type="text" class="form-control" name="q"
-                                    placeholder="cari berdasarkan nama kategori">
+                                    placeholder="Search by Category Name">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> SEARCH
                                     </button>
                                 </div>
                             </div>
@@ -40,8 +40,8 @@ Kategori Uang Masuk - UANGKU
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">NAMA KATEGORI</th>
-                                    <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                    <th scope="col">CATEGORY NAME</th>
+                                    <th scope="col" style="width: 15%;text-align: center">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +87,7 @@ Kategori Uang Masuk - UANGKU
         swal({
             type: "success",
             icon: "success",
-            title: "BERHASIL!",
+            title: "SUCCESS !!!",
             text: "{{ $message }}",
             timer: 1500,
             showConfirmButton: false,
@@ -114,12 +114,12 @@ Kategori Uang Masuk - UANGKU
     var token = $("meta[name='csrf-token']").attr("content");
 
     swal({
-        title: "APAKAH KAMU YAKIN ?",
-        text: "INGIN MENGHAPUS DATA INI!",
+        title: "ARE YOU SURE ? ",
+        text: "DO YOU WANT TO DELETE THIS DATA ?",
         icon: "warning",
         buttons: [
-            'TIDAK',
-            'YA'
+            'NO',
+            'YES'
         ],
         dangerMode: true,
     }).then(function(isConfirm) {
@@ -135,8 +135,8 @@ Kategori Uang Masuk - UANGKU
                 success: function (response) {
                     if (response.status == "success") {
                         swal({
-                            title: 'BERHASIL!',
-                            text: 'DATA BERHASIL DIHAPUS!',
+                            title: 'SUCCESSFULL !!',
+                            text: 'DATA HAS BEEN DELETED!',
                             icon: 'success',
                             timer: 1000,
                             showConfirmButton: false,
@@ -147,8 +147,8 @@ Kategori Uang Masuk - UANGKU
                         });
                     }else{
                         swal({
-                            title: 'GAGAL!',
-                            text: 'DATA GAGAL DIHAPUS!',
+                            title: 'FAIL',
+                            text: 'DATA FAILED TO DELETE',
                             icon: 'error',
                             timer: 1000,
                             showConfirmButton: false,

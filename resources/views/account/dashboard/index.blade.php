@@ -1,7 +1,7 @@
 @extends('layouts.account')
 
 @section('title')
-Dashboard - UANGKU
+Dashboard - OKANEE
 @stop
 
 @section('content')
@@ -25,7 +25,7 @@ Dashboard - UANGKU
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>SEMUA SALDO </h4>
+                            <h4>TOTAL BALANCE </h4>
                         </div>
                         <div class="card-body" style="font-size: 20px">
                             {{ rupiah($saldo_selama_ini) }}
@@ -40,7 +40,7 @@ Dashboard - UANGKU
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>SALDO BULAN INI</h4>
+                            <h4>THIS MONTH BALANCE</h4>
                         </div>
                         <div class="card-body" style="font-size: 20px">
                             {{ rupiah($saldo_bulan_ini) }}
@@ -55,7 +55,7 @@ Dashboard - UANGKU
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>SALDO BULAN LALU</h4>
+                            <h4>LAST MONTH BALANCE</h4>
                         </div>
                         <div class="card-body" style="font-size: 20px">
                             {{ rupiah($saldo_bulan_lalu) }}
@@ -65,7 +65,7 @@ Dashboard - UANGKU
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -77,7 +77,7 @@ Dashboard - UANGKU
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </section>
 </div>

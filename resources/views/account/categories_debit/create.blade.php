@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-Tambah Kategori Uang Masuk - UANGKU
+ADD INCOME CATEGORY - UANGKU
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>KATEGORI UANG MASUK</h1>
+            <h1>INCOME CATEGORY</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-dice-d6"></i> TAMBAH KATEGORI UANG MASUK</h4>
+                    <h4><i class="fas fa-dice-d6"></i> ADD INCOME CATEGORY</h4>
                 </div>
 
                 <div class="card-body">
@@ -23,9 +23,9 @@ Tambah Kategori Uang Masuk - UANGKU
                     <form action="{{ route('account.categories_debit.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>NAMA KATEGORI</label>
+                            <label>CATEGORY NAME</label>
                             <input type="text" name="name" value="{{ old('name') }}"
-                                placeholder="Masukkan Nama Kategori" class="form-control">
+                                placeholder="Please Input the Category Name" class="form-control">
 
                             @error('name')
                             <div class="invalid-feedback" style="display: block">
@@ -35,7 +35,7 @@ Tambah Kategori Uang Masuk - UANGKU
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
-                            SIMPAN</button>
+                            SAVE</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
                     </form>

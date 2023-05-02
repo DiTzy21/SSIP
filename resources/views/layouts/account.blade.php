@@ -70,14 +70,14 @@ function setActive($path, $active = 'active') {
                                 @if(Auth::check())
                                 <div class="dropdown-title">Logged in as <strong>{{ Auth::user()->name }}</strong></div>
                                 @endif
-                                <a href="features-profile.html" class="dropdown-item has-icon">
+                                <!-- <a href="features-profile.html" class="dropdown-item has-icon">
                                     <i class="far fa-user"></i> PROFIL SAYA
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                                     class="dropdown-item has-icon text-danger">
-                                    <i class="fas fa-sign-out-alt"></i> KELUAR
+                                    <i class="fas fa-sign-out-alt"></i> logout
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
@@ -102,43 +102,43 @@ function setActive($path, $active = 'active') {
                                 href="{{ route('account.dashboard.index') }}"><i class="fas fa-home"></i>
                                 <span>DASHBOARD</span></a></li>
                         <li class="dropdown {{ setActive('account/categories_debit'). setActive('account/debit') }}">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>UANG
-                                    MASUK</span></a>
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>INCOME
+                                </span></a>
                             <ul class="dropdown-menu">
                                 <li class="{{ setActive('account/categories_debit') }}"><a class="nav-link"
                                         href="{{ route('account.categories_debit.index') }}"><i
-                                            class="fas fa-dice-d6"></i> KATEGORI</a></li>
+                                            class="fas fa-dice-d6"></i> CATEGORY</a></li>
                                 <li class="{{ setActive('account/debit') }}"><a class="nav-link"
                                         href="{{ route('account.debit.index') }}"><i class="fas fa-money-check-alt"></i>
-                                        UANG MASUK</a></li>
+                                        INCOME</a></li>
                             </ul>
                         </li>
                         <li class="dropdown {{ setActive('account/categories_credit'). setActive('account/credit') }}">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>UANG
-                                    KELUAR</span></a>
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-wallet"></i><span>OUTCOME
+                                    </span></a>
                             <ul class="dropdown-menu">
                                 <li class="{{ setActive('account/categories_credit') }}"><a class="nav-link"
                                         href="{{ route('account.categories_credit.index') }}"><i
-                                            class="fas fa-dice-d6"></i> KATEGORI</a></li>
+                                            class="fas fa-dice-d6"></i> CATEGORY</a></li>
                                 <li class="{{ setActive('account/credit') }}"><a class="nav-link"
                                         href="{{ route('account.credit.index') }}"><i
-                                            class="fas fa-money-check-alt"></i> UANG KELUAR</a></li>
+                                            class="fas fa-money-check-alt"></i> OUTCOME</a></li>
                             </ul>
                         </li>
 
                         <li
                             class="dropdown {{ setActive('account/laporan_debit'). setActive('account/laporan_credit') }}">
                             <a href="#" class="nav-link has-dropdown"><i
-                                    class="fas fa-chart-pie"></i><span>LAPORAN</span></a>
+                                    class="fas fa-chart-pie"></i><span>REPORT</span></a>
                             <ul class="dropdown-menu">
                                 <li class="{{ setActive('account/laporan_debit') }}"><a class="nav-link"
                                         href="{{ route('account.laporan_debit.index') }}"><i
-                                            class="fas fa-chart-line"></i> UANG MASUK</a></li>
+                                            class="fas fa-chart-line"></i> INCOME</a></li>
                                 <li class="{{ setActive('account/laporan_credit') }}"><a class="nav-link"
                                         href="{{ route('account.laporan_credit.index') }}"><i
-                                            class="fas fa-chart-area"></i> UANG KELUAR</a></li>
-                                <li><a class="nav-link" href="index-0.html"><i class="fas fa-chart-pie"></i> SEMUA</a>
-                                </li>
+                                            class="fas fa-chart-area"></i> OUTCOME</a></li>
+                                <!-- <li><a class="nav-link" href="index-0.html"><i class="fas fa-chart-pie"></i> SEMUA</a>
+                                </li> -->
                             </ul>
                         </li>
                     </ul>

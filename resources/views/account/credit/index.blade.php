@@ -1,7 +1,7 @@
 @extends('layouts.account')
 
 @section('title')
-Uang Keluar - UANGKU
+OUTCOME - OKANEE
 @stop
 
 @section('content')
@@ -13,14 +13,14 @@ Uang Keluar - UANGKU
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1> UANG KELUAR</h1>
+            <h1> OUTCOME</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-money-check-alt"></i> UANG KELUAR</h4>
+                    <h4><i class="fas fa-money-check-alt"></i> MONEY OUTCOME</h4>
                 </div>
 
                 <div class="card-body">
