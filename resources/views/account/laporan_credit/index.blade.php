@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-Laporan Uang Keluar - UANGKU
+OUTCOME REPORT - OKANEE
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1> LAPORAN UANG KELUAR</h1>
+            <h1> OUTCOME REPORT</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-chart-area"></i> LAPORAN UANG KELUAR</h4>
+                    <h4><i class="fas fa-chart-area"></i> MONEY OUTCOME REPORT</h4>
                 </div>
 
                 <div class="card-body">
@@ -24,17 +24,17 @@ Laporan Uang Keluar - UANGKU
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>TANGGAL AWAL</label>
+                                    <label>EARLY DATE</label>
                                     <input type="text" name="tanggal_awal" value="{{ old('tanggal_awal') }}"
                                         class="form-control datepicker">
                                 </div>
                             </div>
                             <div class="col-md-2" style="text-align: center">
-                                <label style="margin-top: 38px;">S/D</label>
+                                <label style="margin-top: 38px;">UNTIL</label>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>TANGGAL AKHIR</label>
+                                    <label>END DATE</label>
                                     <input type="text" name="tanggal_akhir" value="{{ old('tanggal_kahir') }}"
                                         class="form-control datepicker">
                                 </div>
@@ -52,7 +52,7 @@ Laporan Uang Keluar - UANGKU
             @if (isset($credit))
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-chart-area"></i> LAPORAN UANG KELUAR</h4>
+                    <h4><i class="fas fa-chart-area"></i> MONEY OUTCOME REPORT</h4>
                 </div>
 
                 <div class="card-body">
@@ -62,10 +62,10 @@ Laporan Uang Keluar - UANGKU
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">KATEGORI</th>
+                                    <th scope="col">CATEGORY</th>
                                     <th scope="col">NOMINAL</th>
-                                    <th scope="col">KETERANGAN</th>
-                                    <th scope="col">TANGGAL</th>
+                                    <th scope="col">DESCRIPTION</th>
+                                    <th scope="col">DATE</th>
                                 </tr>
                             </thead>
                             <tbody>
