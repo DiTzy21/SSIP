@@ -100,7 +100,7 @@ class CreditController extends Controller
         //cek apakah data berhasil disimpan
         if ($save) {
             //redirect dengan pesan sukses
-            return redirect()->route('account.credit.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('account.credit.index')->with(['success' => 'Data Successfully Stored!']);
         } else {
             //redirect dengan pesan error
             return redirect()->route('account.credit.index')->with(['error' => 'Data Gagal Disimpan!']);

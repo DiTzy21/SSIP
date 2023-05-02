@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-ADD OUTCOME CATEGORY -OKANEE
+ADD OUTCOME  -OKANEE
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1> UANG KELUAR</h1>
+            <h1> OUTCOME</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-money-check-alt"></i> TAMBAH UANG KELUAR</h4>
+                    <h4><i class="fas fa-money-check-alt"></i> ADD MONEY OUTCOME</h4>
                 </div>
 
                 <div class="card-body">
@@ -28,7 +28,7 @@ ADD OUTCOME CATEGORY -OKANEE
                                 <div class="form-group">
                                     <label>NOMINAL (Rp.)</label>
                                     <input type="text" name="nominal" value="{{ old('nominal') }}"
-                                        placeholder="Masukkan Nominal" class="form-control currency">
+                                        placeholder="Enter Nominal" class="form-control currency">
 
                                     @error('nominal')
                                     <div class="invalid-feedback" style="display: block">
@@ -39,7 +39,7 @@ ADD OUTCOME CATEGORY -OKANEE
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>TANGGAL</label>
+                                    <label>DATE</label>
                                     <input type="text" class="form-control datetimepicker" name="credit_date"
                                         placeholder="Pilih Tanggal">
 
@@ -55,9 +55,9 @@ ADD OUTCOME CATEGORY -OKANEE
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>KATEGORI</label>
+                                    <label>CATEGORY</label>
                                     <select class="form-control select2" name="category_id" style="width: 100%">
-                                        <option value="">-- PILIH KATEGORI --</option>
+                                        <option value="">-- CHOOSE CATEGORY --</option>
                                         @foreach ($categories as $hasil)
                                         <option value="{{ $hasil->id }}"> {{ $hasil->name }}</option>
                                         @endforeach
@@ -75,9 +75,9 @@ ADD OUTCOME CATEGORY -OKANEE
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>KETERANGAN</label>
+                                    <label>DESCRIPTION</label>
                                     <textarea class="form-control" name="description" rows="6"
-                                        placeholder="Masukkan Keterangan">{{ old('description') }}</textarea>
+                                        placeholder="Add Description">{{ old('description') }}</textarea>
 
                                     @error('description')
                                     <div class="invalid-feedback" style="display: block">
@@ -89,7 +89,7 @@ ADD OUTCOME CATEGORY -OKANEE
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
-                            SIMPAN</button>
+                            SAVE</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
                     </form>

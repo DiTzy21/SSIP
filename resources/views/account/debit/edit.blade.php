@@ -1,21 +1,21 @@
 @extends('layouts.account')
 
 @section('title')
-Edit Uang Masuk - UANGKU
+EDIT INCOME - OKANEE
 @stop
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1> UANG MASUK</h1>
+            <h1> INCOME</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-money-check-alt"></i> EDIT UANG MASUK</h4>
+                    <h4><i class="fas fa-money-check-alt"></i> EDIT MONEY INCOME</h4>
                 </div>
 
                 <div class="card-body">
@@ -28,7 +28,7 @@ Edit Uang Masuk - UANGKU
                                 <div class="form-group">
                                     <label>NOMINAL (Rp.)</label>
                                     <input type="text" name="nominal" value="{{ old('nominal', $debit->nominal) }}"
-                                        placeholder="Masukkan Nominal" class="form-control currency">
+                                        placeholder="Insert Nominal" class="form-control currency">
 
                                     @error('nominal')
                                     <div class="invalid-feedback" style="display: block">
@@ -39,7 +39,7 @@ Edit Uang Masuk - UANGKU
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>TANGGAL</label>
+                                    <label>DATE</label>
                                     <input type="text" class="form-control datetimepicker" name="debit_date"
                                         value="{{ old('debit_date', $debit->debit_date) }}" placeholder="Pilih Tanggal">
 
@@ -55,9 +55,9 @@ Edit Uang Masuk - UANGKU
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>KATEGORI</label>
+                                    <label>CATEGORY</label>
                                     <select class="form-control select2" name="category_id">
-                                        <option value="">-- PILIH KATEGORI --</option>
+                                        <option value="">--CHOOSE CATEGORY --</option>
                                         @foreach ($categories as $hasil)
                                         @if($debit->category_id == $hasil->id)
                                         <option value="{{ $hasil->id }}" selected> {{ $hasil->name }}</option>
@@ -79,7 +79,7 @@ Edit Uang Masuk - UANGKU
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>KETERANGAN</label>
+                                    <label>DESCRIPTION</label>
                                     <textarea class="form-control" name="description" rows="6"
                                         placeholder="Masukkan Keterangan">{{ old('description', $debit->description) }}</textarea>
 

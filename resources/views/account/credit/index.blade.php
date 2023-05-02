@@ -29,12 +29,12 @@ OUTCOME - OKANEE
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <a href="{{ route('account.credit.create') }}" class="btn btn-primary"
-                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> ADD</a>
                                 </div>
                                 <input type="text" class="form-control" name="q"
-                                    placeholder="cari berdasarkan keterangan">
+                                    placeholder="Search by Descrtiption">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> SEARCH
                                     </button>
                                 </div>
                             </div>
@@ -45,11 +45,11 @@ OUTCOME - OKANEE
                             <thead>
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">KATEGORI</th>
+                                    <th scope="col">CATEGORY</th>
                                     <th scope="col">NOMINAL</th>
-                                    <th scope="col">KETERANGAN</th>
-                                    <th scope="col">TANGGAL</th>
-                                    <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                    <th scope="col">DESCRIPTION</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col" style="width: 15%;text-align: center">ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,7 +98,7 @@ OUTCOME - OKANEE
         swal({
             type: "success",
             icon: "success",
-            title: "BERHASIL!",
+            title: "SUCCESS!",
             text: "{{ $message }}",
             timer: 1500,
             showConfirmButton: false,
@@ -109,7 +109,7 @@ OUTCOME - OKANEE
         swal({
             type: "error",
             icon: "error",
-            title: "GAGAL!",
+            title: "FAILED!",
             text: "{{ $message }}",
             timer: 1500,
             showConfirmButton: false,
@@ -125,12 +125,12 @@ OUTCOME - OKANEE
     var token = $("meta[name='csrf-token']").attr("content");
 
     swal({
-        title: "APAKAH KAMU YAKIN ?",
-        text: "INGIN MENGHAPUS DATA INI!",
+        title: "ARE YOU SURE ?",
+        text: "WANT TO DELETE THIS DATA!",
         icon: "warning",
         buttons: [
-            'TIDAK',
-            'YA'
+            'NO',
+            'YES'
         ],
         dangerMode: true,
     }).then(function(isConfirm) {
@@ -146,8 +146,8 @@ OUTCOME - OKANEE
                 success: function (response) {
                     if (response.status == "success") {
                         swal({
-                            title: 'BERHASIL!',
-                            text: 'DATA BERHASIL DIHAPUS!',
+                            title: 'SUCCESS!',
+                            text: 'DATA SUCCESSFULLY DELETED!',
                             icon: 'success',
                             timer: 1000,
                             showConfirmButton: false,
@@ -158,8 +158,8 @@ OUTCOME - OKANEE
                         });
                     }else{
                         swal({
-                            title: 'GAGAL!',
-                            text: 'DATA GAGAL DIHAPUS!',
+                            title: 'FAILED!',
+                            text: 'DATA FAILED TO DELETE!',
                             icon: 'error',
                             timer: 1000,
                             showConfirmButton: false,
