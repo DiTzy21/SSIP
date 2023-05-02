@@ -38,7 +38,7 @@ class CategoriesDebitController extends Controller
     {
         $search = $request->get('q');
         $categories = CategoriesDebit::where('user_id', Auth::user()->id)
-            ->where('name', 'LIKE', '%' .$search. '%')
+            ->where('name', 'LIKE', '%' . $search . '%')
             ->orderBy('created_at', 'DESC')
             ->paginate(10);
         return view('account.categories_debit.index', compact('categories'));
@@ -63,9 +63,11 @@ class CategoriesDebitController extends Controller
     public function store(Request $request)
     {
         //set validasi required
-        $this->validate($request, [
-            'name'  => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'name'  => 'required'
+            ],
             //set message validation
             [
                 'name.required' => 'Masukkan Nama Kategori !',
@@ -78,14 +80,13 @@ class CategoriesDebitController extends Controller
             'name'          => $request->input('name')
         ]);
         //cek apakah data berhasil disimpan
-        if($save){
+        if ($save) {
             //redirect dengan pesan sukses
             return redirect()->route('account.categories_debit.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.categories_debit.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
-
     }
 
     /**
@@ -109,9 +110,11 @@ class CategoriesDebitController extends Controller
     public function update(Request $request, CategoriesDebit $categoriesDebit)
     {
         //set validasi required
-        $this->validate($request, [
-            'name'  => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'name'  => 'required'
+            ],
             //set message validation
             [
                 'name.required' => 'Masukkan Nama Kategori !',
@@ -124,10 +127,10 @@ class CategoriesDebitController extends Controller
             'name'          => $request->input('name')
         ]);
         //cek apakah data berhasil disimpan
-        if($update){
+        if ($update) {
             //redirect dengan pesan sukses
             return redirect()->route('account.categories_debit.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.categories_debit.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -143,11 +146,11 @@ class CategoriesDebitController extends Controller
     {
         $delete = CategoriesDebit::find($id)->delete($id);
 
-        if($delete){
+        if ($delete) {
             return response()->json([
                 'status' => 'success'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error'
             ]);

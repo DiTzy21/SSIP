@@ -26,11 +26,11 @@ class DashboardController extends Controller
     {
 
         $uang_masuk_bulan_ini = DB::table('debit')
-        ->selectRaw('sum(nominal) as nominal')
-        ->whereYear('debit_date', Carbon::now()->year)
-        ->whereMonth('debit_date', Carbon::now()->month)
-        ->where('user_id', Auth::user()->id)
-        ->first();
+            ->selectRaw('sum(nominal) as nominal')
+            ->whereYear('debit_date', Carbon::now()->year)
+            ->whereMonth('debit_date', Carbon::now()->month)
+            ->where('user_id', Auth::user()->id)
+            ->first();
 
         $uang_keluar_bulan_ini = DB::table('credit')
             ->selectRaw('sum(nominal) as nominal')
@@ -78,7 +78,6 @@ class DashboardController extends Controller
          * chart
          */
 
-        return view('account.dashboard.index', compact('saldo_selama_ini','saldo_bulan_ini', 'saldo_bulan_lalu'));
+        return view('account.dashboard.index', compact('saldo_selama_ini', 'saldo_bulan_ini', 'saldo_bulan_lalu'));
     }
-
 }

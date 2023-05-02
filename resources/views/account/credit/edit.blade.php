@@ -1,107 +1,111 @@
 @extends('layouts.account')
 
 @section('title')
-    Edit Uang keluar - UANGKU
+Edit Uang keluar - UANGKU
 @stop
 
 @section('content')
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1> UANG KELUAR</h1>
-            </div>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1> UANG KELUAR</h1>
+        </div>
 
-            <div class="section-body">
+        <div class="section-body">
 
-                <div class="card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-money-check-alt"></i> EDIT UANG KELUAR</h4>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-money-check-alt"></i> EDIT UANG KELUAR</h4>
+                </div>
 
-                    <div class="card-body">
+                <div class="card-body">
 
-                        <form action="{{ route('account.credit.update', $credit->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>NOMINAL (Rp.)</label>
-                                        <input type="text" name="nominal" value="{{ old('nominal', $credit->nominal) }}" placeholder="Masukkan Nominal" class="form-control currency">
+                    <form action="{{ route('account.credit.update', $credit->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>NOMINAL (Rp.)</label>
+                                    <input type="text" name="nominal" value="{{ old('nominal', $credit->nominal) }}"
+                                        placeholder="Masukkan Nominal" class="form-control currency">
 
-                                        @error('nominal')
-                                        <div class="invalid-feedback" style="display: block">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
+                                    @error('nominal')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>TANGGAL</label>
-                                        <input type="text" class="form-control datetimepicker" name="credit_date" value="{{ old('credit_date', $credit->credit_date) }}" placeholder="Pilih Tanggal">
-
-                                        @error('date_debit')
-                                        <div class="invalid-feedback" style="display: block">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>TANGGAL</label>
+                                    <input type="text" class="form-control datetimepicker" name="credit_date"
+                                        value="{{ old('credit_date', $credit->credit_date) }}"
+                                        placeholder="Pilih Tanggal">
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>KATEGORI</label>
-                                        <select class="form-control select2" name="category_id" style="width: 100%">
-                                            <option value="">-- PILIH KATEGORI --</option>
-                                            @foreach ($categories as $hasil)
-                                                @if($credit->category_id == $hasil->id)
-                                                    <option value="{{ $hasil->id }}" selected> {{ $hasil->name }}</option>
-                                                @else
-                                                    <option value="{{ $hasil->id }}"> {{ $hasil->name }}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-
-                                        @error('category_id')
-                                        <div class="invalid-feedback" style="display: block">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
+                                    @error('date_debit')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>KETERANGAN</label>
-                                        <textarea class="form-control" name="description" rows="6" placeholder="Masukkan Keterangan">{{ old('description', $credit->description) }}</textarea>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>KATEGORI</label>
+                                    <select class="form-control select2" name="category_id" style="width: 100%">
+                                        <option value="">-- PILIH KATEGORI --</option>
+                                        @foreach ($categories as $hasil)
+                                        @if($credit->category_id == $hasil->id)
+                                        <option value="{{ $hasil->id }}" selected> {{ $hasil->name }}</option>
+                                        @else
+                                        <option value="{{ $hasil->id }}"> {{ $hasil->name }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
 
-                                        @error('description')
-                                        <div class="invalid-feedback" style="display: block">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
+                                    @error('category_id')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                             </div>
+                        </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> UPDATE</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>KETERANGAN</label>
+                                    <textarea class="form-control" name="description" rows="6"
+                                        placeholder="Masukkan Keterangan">{{ old('description', $credit->description) }}</textarea>
 
-                        </form>
+                                    @error('description')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
 
-                    </div>
+                        <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            UPDATE</button>
+                        <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
+
+                    </form>
+
                 </div>
             </div>
-        </section>
-    </div>
-    <script>
-
-        var cleaveC = new Cleave('.currency', {
+        </div>
+    </section>
+</div>
+<script>
+    var cleaveC = new Cleave('.currency', {
             numeral: true,
             numeralThousandsGroupStyle: 'thousand'
         });
@@ -138,5 +142,5 @@
             }, 500);
         })
 
-    </script>
+</script>
 @stop

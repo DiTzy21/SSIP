@@ -1,50 +1,52 @@
 @extends('layouts.account')
 
 @section('title')
-   Tambah Kategori Uang keluar - UANGKU
+Tambah Kategori Uang keluar - UANGKU
 @stop
 
 @section('content')
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>KATEGORI UANG KELUAR</h1>
-            </div>
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>KATEGORI UANG KELUAR</h1>
+        </div>
 
-            <div class="section-body">
+        <div class="section-body">
 
-                <div class="card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-dice-d6"></i> TAMBAH KATEGORI UANG KELUAR</h4>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4><i class="fas fa-dice-d6"></i> TAMBAH KATEGORI UANG KELUAR</h4>
+                </div>
 
-                    <div class="card-body">
+                <div class="card-body">
 
-                        <form action="{{ route('account.categories_credit.store') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label>NAMA KATEGORI</label>
-                                <input type="text" name="name" value="{{ old('name') }}" placeholder="Masukkan Nama Kategori" class="form-control">
+                    <form action="{{ route('account.categories_credit.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label>NAMA KATEGORI</label>
+                            <input type="text" name="name" value="{{ old('name') }}"
+                                placeholder="Masukkan Nama Kategori" class="form-control">
 
-                                @error('name')
-                                    <div class="invalid-feedback" style="display: block">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                            @error('name')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
                             </div>
+                            @enderror
+                        </div>
 
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
+                        <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            SIMPAN</button>
+                        <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
-                        </form>
+                    </form>
 
-                    </div>
                 </div>
             </div>
-        </section>
-    </div>
-    <script>
-        var timeoutHandler = null;
+        </div>
+    </section>
+</div>
+<script>
+    var timeoutHandler = null;
 
         /**
          * btn submit loader
@@ -76,5 +78,5 @@
             }, 500);
         })
 
-    </script>
+</script>
 @stop
