@@ -46,7 +46,7 @@ class DebitController extends Controller
             ->select('debit.id', 'debit.category_id', 'debit.user_id', 'debit.nominal', 'debit.debit_date', 'debit.description', 'categories_debit.id as id_category', 'categories_debit.name')
             ->join('categories_debit', 'debit.category_id', '=', 'categories_debit.id', 'LEFT')
             ->where('debit.user_id', Auth::user()->id)
-            ->where('debit.description', 'LIKE', '%' .$search. '%')
+            ->where('debit.description', 'LIKE', '%' . $search . '%')
             ->orderBy('debit.created_at', 'DESC')
             ->paginate(10);
         return view('account.debit.index', compact('debit'));
@@ -60,7 +60,7 @@ class DebitController extends Controller
     public function create()
     {
         $categories = CategoriesDebit::where('user_id', Auth::user()->id)
-        ->get();
+            ->get();
         return view('account.debit.create', compact('categories'));
     }
 
@@ -73,12 +73,14 @@ class DebitController extends Controller
     public function store(Request $request)
     {
         //set validasi required
-        $this->validate($request, [
-            'nominal'       => 'required',
-            'debit_date'    => 'required',
-            'category_id'   => 'required',
-            'description'   => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'nominal'       => 'required',
+                'debit_date'    => 'required',
+                'category_id'   => 'required',
+                'description'   => 'required'
+            ],
             //set message validation
             [
                 'nominal.required' => 'Masukkan Nominal Debit / Uang Masuk!',
@@ -97,10 +99,10 @@ class DebitController extends Controller
             'description'   => $request->input('description'),
         ]);
         //cek apakah data berhasil disimpan
-        if($save){
+        if ($save) {
             //redirect dengan pesan sukses
             return redirect()->route('account.debit.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.debit.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
@@ -129,12 +131,14 @@ class DebitController extends Controller
     public function update(Request $request, Debit $debit)
     {
         //set validasi required
-        $this->validate($request, [
-            'nominal'       => 'required',
-            'debit_date'    => 'required',
-            'category_id'   => 'required',
-            'description'   => 'required'
-        ],
+        $this->validate(
+            $request,
+            [
+                'nominal'       => 'required',
+                'debit_date'    => 'required',
+                'category_id'   => 'required',
+                'description'   => 'required'
+            ],
             //set message validation
             [
                 'nominal.required' => 'Masukkan Nominal Debit / Uang Masuk!',
@@ -153,10 +157,10 @@ class DebitController extends Controller
             'description'   => $request->input('description'),
         ]);
         //cek apakah data berhasil disimpan
-        if($update){
+        if ($update) {
             //redirect dengan pesan sukses
             return redirect()->route('account.debit.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('account.debit.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -184,5 +188,4 @@ class DebitController extends Controller
             ]);
         }
     }
-
 }

@@ -32,10 +32,12 @@ class LaporanDebitController extends Controller
     public function check(Request $request)
     {
         //set validasi required
-        $this->validate($request, [
-            'tanggal_awal'     => 'required',
-            'tanggal_akhir'    => 'required',
-        ],
+        $this->validate(
+            $request,
+            [
+                'tanggal_awal'     => 'required',
+                'tanggal_akhir'    => 'required',
+            ],
             //set message validation
             [
                 'tanggal_awal.required'  => 'Silahkan Pilih Tanggal Awal!',
@@ -55,5 +57,4 @@ class LaporanDebitController extends Controller
 
         return view('account.laporan_debit.index', compact('debit', 'tanggal_awal', 'tanggal_akhir'));
     }
-
 }
